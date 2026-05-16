@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🌱 Crop Recommendation System</h1>
+
+    <form action="/predict" method="post">
+        <input type="text" name="city" placeholder="Enter City" required>
+        <input type="text" name="name" placeholder="Enter Name" required>
+
+        <input type="number" name="N" placeholder="Nitrogen" required>
+        <input type="number" name="P" placeholder="Phosphorus" required>
+        <input type="number" name="K" placeholder="Potassium" required>
+
+        <!-- Optional fields (used only if API fails) -->
+        <input type="number" name="temperature" placeholder="Temperature (optional backup)" step="any">
+        <input type="number" name="humidity" placeholder="Humidity (optional backup)" step="any">
+
+        <input type="number" name="ph" placeholder="pH" step="any" required>
+
+        <input type="number" name="rainfall" placeholder="Rainfall (optional backup)" step="any">
+
+        <button type="submit">Predict Crop</button>
+    </form>
+</div>
+
+</body>
+</html>

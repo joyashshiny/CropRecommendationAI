@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            background: url('/static/{{ crop_image }}') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .container {
+            width: 500px;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        a {
+            color: yellow;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hello {{ name }} 👋</h1>
+    <h2>Recommended Crop: {{ crop }}</h2>
+
+    <p><b>City:</b> {{ city }}</p>
+    <p><b>Expected Profit:</b> {{ profit }}</p>
+    <p><b>Water Requirement:</b> {{ water }}</p>
+    <p><b>Harvest Duration:</b> {{ duration }}</p>
+    <p><b>Recommended Fertilizer:</b> {{ fertilizer }}</p>
+
+    <p><b>Temperature Used:</b> {{ temperature }} °C</p>
+    <p><b>Humidity Used:</b> {{ humidity }} %</p>
+    <p><b>Rainfall Used:</b> {{ rainfall }} mm</p>
+    <p><b>Expected Market Price:</b> {{ price }}</p>
+    <p><b>Demand Level:</b> {{ demand }}</p>
+    <p><b>Best Selling Season:</b> {{ season }}</p>
+
+    <h3>Top 3 Recommendations</h3>
+    {% for item in top3 %}
+        <p>{{ item.crop.title() }} → {{ item.confidence }}%</p>
+    {% endfor %}
+
+    <br>
+    <a href="/">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>
